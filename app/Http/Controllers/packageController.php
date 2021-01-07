@@ -43,7 +43,7 @@ class packageController extends Controller
 
             return ResponseFormatter::success([
                 'package' => $package
-            ],'Package Inserted!');
+            ],'Package Inserted!', 200);
             
         }
         catch(Exception $error){
@@ -101,22 +101,16 @@ class packageController extends Controller
             $package->delete();
             return ResponseFormatter::success([
                 'package' => $package
-            ],'Package Deleted!');
+            ],'Package Deleted!', 200);
         }
         catch(Exception $error){
             return ResponseFormatter::error(['error'=>$validator->errors()], 'Package delete error', 401);
         }
     }
 
-    public function updateSpesific(Request $request, $package)
+    public function updateSpesific($package)
     {
-        $package = Package::find($package);
-        $package->zone_code = $request->zone_code;
-        $package->save();
-
-        return ResponseFormatter::success([
-            'package' => $package
-        ],'Zone Code Updated!');
+        return "adwada";
     }
 }
 
